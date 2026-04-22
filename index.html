@@ -134,6 +134,11 @@
   /* Cake */
   .cake-scene {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
     margin-bottom: clamp(15px, 3vh, 30px);
     transform: translateY(40px) scale(var(--cake-scale, 1));
     opacity: 0;
@@ -339,7 +344,8 @@
 
   /* Blow button */
   .blow-btn {
-    margin-top: 12px;
+    display: block;
+    margin: 12px auto 0;
     padding: 12px 32px;
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.25);
@@ -578,16 +584,23 @@
     .cake-scene { --cake-scale: 0.9; }
   }
 
-  /* ===== Landscape mobile ===== */
+  /* ===== Landscape mobile (keep column layout so “Make a Wish” stays centered, not beside text) ===== */
   @media (max-height: 500px) and (orientation: landscape) {
-    .main { flex-direction: row; gap: 30px; justify-content: center; padding: 10px 30px; }
-    .cake-scene { --cake-scale: 0.55; margin-bottom: 0; }
-    .text-section { text-align: left; }
-    .happy, .birthday { font-size: 1.8rem; }
-    .nara { font-size: 2.5rem; letter-spacing: 6px; }
-    .wishes { font-size: 0.7rem; }
-    .age-tag { font-size: 0.6rem; }
-    .blow-btn { padding: 8px 18px; font-size: 0.7rem; min-height: 40px; }
+    .main {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px 12px;
+      overflow-y: auto;
+    }
+    .cake-scene { --cake-scale: 0.5; margin-bottom: 0; }
+    .text-section { text-align: center; }
+    .happy, .birthday { font-size: 1.7rem; }
+    .nara { font-size: 2.3rem; letter-spacing: 6px; }
+    .wishes { font-size: 0.65rem; }
+    .age-tag { font-size: 0.55rem; }
+    .blow-btn { padding: 8px 22px; font-size: 0.7rem; min-height: 40px; }
   }
 </style>
 </head>
